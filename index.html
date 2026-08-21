@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rishitha Galicherla — Full-stack developer &amp; data analyst</title>
+<meta name="description" content="Full-stack developer and data analyst. React, Flask, Java, MySQL, Power BI. MCA graduate available for freelance and contract work.">
+<meta name="theme-color" content="#0A0E1C">
+
+<!-- ============================================================
+     STILL TO DO — search "TODO" to find each one in place.
+       1. Screenshots for the two project cards
+       2. MUSE live demo link, or a screen recording
+       3. Second internship, if you have one (block is ready below)
+       4. Re-share certificate Drive links (yours contain /u/1/,
+          which only works on your own machine)
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --void:#0A0E1C;
+  --panel:#111730;
+  --panel-2:#161D3C;
+  --line:#242D53;
+  --line-soft:#1B2245;
+  --text:#EAEEF9;
+  --dim:#8C99BE;
+  --dim-2:#5F6B90;
+  --signal:#FFB84D;   /* the spoken signal */
+  --cool:#54D8D0;     /* the acoustic signal */
+
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --gutter:clamp(20px,5vw,80px);
+  --max:1140px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--void);color:var(--text);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--signal);outline-offset:4px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* ============ scroll progress ============ */
+#prog{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--cool),var(--signal));
+}
+
+/* ============ nav ============ */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--void) 82%,transparent);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+.topbar.stuck{border-bottom-color:var(--line-soft)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
+.mark{font-family:var(--display);font-weight:800;font-size:15.5px;letter-spacing:-.02em;text-decoration:none}
+.mark i{font-style:normal;color:var(--signal)}
+.nav{display:flex;align-items:center;gap:26px;font-family:var(--mono);font-size:12.5px}
+.nav a{text-decoration:none;color:var(--dim);position:relative;transition:color .2s}
+.nav a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;
+  background:var(--signal);transition:right .28s ease;
+}
+.nav a:hover{color:var(--text)}
+.nav a:hover::after{right:0}
+@media(max-width:800px){.nav a:not(.nav-cta){display:none}}
+.nav-cta{
+  border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--text) !important;
+  transition:background .2s,border-color .2s;
+}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--signal);border-color:var(--signal);color:var(--void) !important}
+
+/* ============ hero ============ */
+.hero{position:relative;padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);overflow:hidden}
+#wave{
+  position:absolute;inset:auto 0 0 0;width:100%;height:min(58vh,460px);
+  opacity:.5;pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:2}
+.avail{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--cool);border:1px solid color-mix(in srgb,var(--cool) 34%,transparent);
+  border-radius:999px;padding:6px 14px;margin-bottom:30px;
+  background:color-mix(in srgb,var(--cool) 8%,transparent);
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--cool);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.78)}}
+
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(38px,7.6vw,86px);line-height:.99;letter-spacing:-.045em;
+  margin:0 0 28px;max-width:17ch;
+}
+.hero h1 .a{color:var(--signal)}
+.hero h1 .b{color:var(--cool)}
+.hero .lede{font-size:clamp(17px,1.9vw,21px);color:var(--dim);max-width:54ch;margin:0 0 36px}
+.hero .lede strong{color:var(--text);font-weight:600}
+
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:46px}
+.btn{
+  font-family:var(--mono);font-size:13px;text-decoration:none;
+  padding:14px 24px;border-radius:999px;display:inline-flex;align-items:center;gap:9px;
+  transition:transform .2s,box-shadow .2s,background .2s,border-color .2s,color .2s;
+}
+.btn .arw{transition:transform .2s}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-1{background:var(--signal);color:#25180A;font-weight:500}
+.btn-1:hover{transform:translateY(-2px);box-shadow:0 12px 30px color-mix(in srgb,var(--signal) 28%,transparent)}
+.btn-2{border:1px solid var(--line);color:var(--text)}
+.btn-2:hover{border-color:var(--cool);color:var(--cool);transform:translateY(-2px)}
+
+.hero-meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
+}
+.hero-meta div{background:var(--void);padding:18px 20px}
+.hero-meta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim-2);margin:0 0 6px}
+.hero-meta dd{margin:0;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.015em}
+
+/* ============ marquee ============ */
+.strip{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:16px 0;background:var(--panel)}
+.mq{display:flex;gap:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq ul{
+  display:flex;flex-shrink:0;gap:38px;list-style:none;margin:0;padding:0 19px;
+  font-family:var(--mono);font-size:12.5px;color:var(--dim-2);letter-spacing:.06em;white-space:nowrap;
+  animation:slide 34s linear infinite;
+}
+.mq:hover ul{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-100%)}}
+.mq li::before{content:"/ ";color:var(--signal);opacity:.55}
+
+/* ============ section shell ============ */
+.band{padding:clamp(56px,8vw,104px) 0;position:relative}
+.band + .band{border-top:1px solid var(--line-soft)}
+.head{margin-bottom:clamp(34px,5vw,56px);max-width:64ch}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cool);margin:0 0 16px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);max-width:180px}
+.head h2{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(26px,4vw,42px);line-height:1.08;letter-spacing:-.035em;margin:0 0 14px;
+}
+.head p{color:var(--dim);margin:0;font-size:17px}
+
+/* ============ services ============ */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.svc article{
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;
+  padding:26px 24px 24px;position:relative;overflow:hidden;
+  transition:transform .28s,border-color .28s,background .28s;
+}
+.svc article::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,var(--signal),var(--cool));
+  transform:scaleX(0);transform-origin:left;transition:transform .34s ease;
+}
+.svc article:hover{transform:translateY(-4px);border-color:var(--line);background:var(--panel-2)}
+.svc article:hover::after{transform:scaleX(1)}
+.svc h3{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.02em;margin:0 0 10px}
+.svc p{margin:0;color:var(--dim);font-size:15.5px;line-height:1.6}
+.svc .tools{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--dim-2);letter-spacing:.06em}
+
+/* ============ experience rail ============ */
+.rail{position:relative;padding-left:34px}
+.rail::before{content:"";position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--signal),var(--line),transparent)}
+.entry{position:relative;padding-bottom:44px}
+.entry:last-child{padding-bottom:0}
+.entry::before{
+  content:"";position:absolute;left:-34px;top:7px;width:9px;height:9px;border-radius:50%;
+  background:var(--signal);box-shadow:0 0 0 5px color-mix(in srgb,var(--signal) 14%,transparent);
+}
+.entry .when{font-family:var(--mono);font-size:11.5px;color:var(--dim-2);letter-spacing:.06em;margin:0 0 8px}
+.entry h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.02em;margin:0 0 4px}
+.entry .org{color:var(--cool);font-family:var(--mono);font-size:13px;margin:0 0 16px}
+.entry ul{margin:0;padding-left:20px;color:var(--dim)}
+.entry li{margin-bottom:9px}
+.entry li strong{color:var(--text);font-weight:500}
+
+/* ============ projects ============ */
+.pj{display:grid;gap:20px}
+.pj article{
+  border:1px solid var(--line-soft);border-radius:20px;overflow:hidden;background:var(--panel);
+  transition:border-color .3s;
+}
+.pj article:hover{border-color:var(--line)}
+.pj .visual{
+  height:130px;position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft);
+  background:var(--panel-2);display:flex;align-items:center;justify-content:center;
+}
+.pj .visual img{width:100%;height:100%;object-fit:cover}
+.pj .bars{display:flex;align-items:flex-end;gap:3px;height:64%;opacity:.72}
+.pj .bars span{width:5px;border-radius:2px;background:var(--cool)}
+.pj article:nth-child(2) .bars span{background:var(--signal)}
+.pj article:nth-child(3) .bars span{background:linear-gradient(180deg,var(--cool),var(--signal))}
+.pj .ph{
+  position:absolute;font-family:var(--mono);font-size:11px;color:var(--dim-2);
+  letter-spacing:.08em;border:1px dashed var(--line);padding:6px 12px;border-radius:8px;
+  background:color-mix(in srgb,var(--void) 72%,transparent);
+}
+.pj .inner{padding:clamp(22px,3vw,34px)}
+.pj .topline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);border:1px solid color-mix(in srgb,var(--signal) 30%,transparent);border-radius:999px;padding:4px 11px}
+.pj h3{font-family:var(--display);font-weight:600;font-size:clamp(21px,2.8vw,29px);letter-spacing:-.03em;margin:0 0 14px;line-height:1.12}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line-soft);margin-bottom:20px;flex-wrap:wrap}
+.tabs button{
+  font-family:var(--mono);font-size:12px;background:none;border:0;color:var(--dim-2);
+  padding:10px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color .2s,border-color .2s;
+}
+.tabs button:hover{color:var(--text)}
+.tabs button[aria-selected="true"]{color:var(--signal);border-bottom-color:var(--signal)}
+.pane{display:none;color:var(--dim)}
+.pane.on{display:block}
+.pane p{margin:0 0 12px}
+.pane p:last-child{margin-bottom:0}
+.pane strong{color:var(--text);font-weight:500}
+.pane ul{margin:0;padding-left:19px}
+.pane li{margin-bottom:8px}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:6px 12px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line-soft);color:var(--dim)}
+.links{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line-soft);font-family:var(--mono);font-size:12.5px}
+.links a{color:var(--cool);text-decoration:none;display:inline-flex;gap:7px;align-items:center}
+.links a:hover{text-decoration:underline}
+.todo{font-family:var(--mono);font-size:11px;color:var(--signal);border:1px dashed color-mix(in srgb,var(--signal) 45%,transparent);border-radius:999px;padding:4px 11px}
+
+/* ============ secondary projects ============ */
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:14px}
+.more article{
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:16px;padding:24px 22px;
+  transition:border-color .28s,transform .28s;
+}
+.more article:hover{border-color:var(--line);transform:translateY(-3px)}
+.more h3{font-family:var(--display);font-weight:600;font-size:17.5px;letter-spacing:-.02em;margin:0 0 6px}
+.more .tag-line{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--cool);margin:0 0 14px}
+.more p{margin:0;color:var(--dim);font-size:15.5px;line-height:1.6}
+.more .why{margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--dim-2)}
+
+/* ============ skills ============ */
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sk > div{background:var(--panel);border:1px solid var(--line-soft);border-radius:18px;padding:26px 24px}
+.sk h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;color:var(--dim)}
+.sk .cap{font-size:14.5px;color:var(--dim-2);margin:0 0 20px}
+.sk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.sk li{font-family:var(--mono);font-size:12.5px;padding:7px 13px;border-radius:8px;transition:transform .18s,border-color .18s}
+.sk li:hover{transform:translateY(-2px)}
+.sk .core li{background:color-mix(in srgb,var(--cool) 9%,transparent);border:1px solid color-mix(in srgb,var(--cool) 30%,transparent);color:var(--text)}
+.sk .core li:hover{border-color:var(--cool)}
+.sk .aware li{background:var(--panel-2);border:1px solid var(--line-soft);color:var(--dim)}
+.sk .aware li:hover{border-color:var(--line)}
+
+/* ============ education ============ */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden}
+.edu div{background:var(--panel);padding:24px 22px}
+.edu h3{font-family:var(--display);font-weight:600;font-size:16.5px;margin:0 0 6px;letter-spacing:-.015em}
+.edu p{margin:0;font-family:var(--mono);font-size:12px;color:var(--dim-2);line-height:1.85}
+.edu .g{color:var(--cool)}
+
+/* ============ contact ============ */
+.contact{position:relative;overflow:hidden}
+.contact::before{
+  content:"";position:absolute;left:50%;top:-30%;width:min(760px,120%);aspect-ratio:1;
+  transform:translateX(-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,color-mix(in srgb,var(--signal) 13%,transparent),transparent 66%);
+}
+.contact .wrap{position:relative}
+.contact h2{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(30px,6vw,64px);line-height:1.02;letter-spacing:-.045em;margin:0 0 20px;max-width:20ch;
+}
+.contact h2 em{font-style:normal;color:var(--signal)}
+.contact .say{color:var(--dim);max-width:50ch;margin:0 0 34px;font-size:17.5px}
+.cl{display:flex;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:13px}
+.cl a,.cl button{
+  text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:13px 21px;
+  background:none;color:var(--text);font-family:var(--mono);font-size:13px;cursor:pointer;
+  transition:border-color .2s,color .2s,transform .2s;
+}
+.cl a:hover,.cl button:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px)}
+
+footer{border-top:1px solid var(--line-soft);padding:26px 0 34px;color:var(--dim-2);font-family:var(--mono);font-size:11.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between}
+
+/* ============ reveal ============ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .mq ul{animation:none}
+  .pulse{animation:none}
+  .btn:hover,.svc article:hover,.sk li:hover,.cl a:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="prog" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">Rishitha Galicherla<i>.</i></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#hire">Work with me</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a class="nav-cta" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="avail"><span class="pulse"></span> Available for freelance &amp; contract</p>
+    <h1>I build systems that turn <span class="a">signal</span> into <span class="b">something you can act on</span>.</h1>
+    <p class="lede">
+      <strong>MCA, Reva University.</strong> Most recently I built and shipped two modules into a live
+      commercial product at DYLIT &mdash; React, Next.js and TypeScript, integrating against the team's
+      Go services. Before that, an NLP engine that detects sarcasm from speech by reading tone and words
+      against each other. I work from Figma through to the database.
+    </p>
+    <div class="cta">
+      <a class="btn btn-1" href="#projects">See the projects <span class="arw">&rarr;</span></a>
+      <a class="btn btn-2" href="#contact">Start a project</a>
+    </div>
+    <dl class="hero-meta">
+      <div><dt>Based in</dt><dd>Bengaluru, India</dd></div>
+      <div><dt>Focus</dt><dd>Full-stack &amp; UI/UX</dd></div>
+      <div><dt>Projects shown</dt><dd>4</dd></div>
+      <div><dt>Response time</dt><dd>Within a day</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="mq">
+    <ul>
+      <li>React</li><li>Next.js</li><li>TypeScript</li><li>Redux</li><li>Tailwind</li><li>Python</li><li>Flask</li><li>Django</li><li>Java</li><li>MySQL</li><li>MongoDB</li><li>Power BI</li>
+      <li>SQL</li><li>Figma</li><li>mBERT</li><li>Librosa</li><li>Swing</li><li>Oracle</li><li>R</li>
+    </ul>
+    <ul>
+      <li>React</li><li>Next.js</li><li>TypeScript</li><li>Redux</li><li>Tailwind</li><li>Python</li><li>Flask</li><li>Django</li><li>Java</li><li>MySQL</li><li>MongoDB</li><li>Power BI</li>
+      <li>SQL</li><li>Figma</li><li>mBERT</li><li>Librosa</li><li>Swing</li><li>Oracle</li><li>R</li>
+    </ul>
+  </div>
+</div>
+
+<section class="band" id="hire">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">What I can take on</p>
+      <h2>Four things I have already built, described as work you could hire me for.</h2>
+      <p>Not a skills list. If your problem is one of these, I have done the equivalent before.</p>
+    </div>
+    <div class="svc">
+      <article class="rv">
+        <h3>Full-stack web applications</h3>
+        <p>Interface, server logic, database, deployment. I have shipped a React front end against a
+           Flask API with separate user and admin views, running live.</p>
+        <p class="tools">React &middot; Flask &middot; Python &middot; REST</p>
+      </article>
+      <article class="rv">
+        <h3>Power BI dashboards</h3>
+        <p>A spreadsheet or database turned into a report someone can read and act on &mdash; including
+           cleaning the source data first, which is usually most of the job.</p>
+        <p class="tools">Power BI &middot; SQL &middot; Excel &middot; R</p>
+      </article>
+      <article class="rv">
+        <h3>Database design &amp; queries</h3>
+        <p>Schema design, relationships, and the queries behind features and reports. From a normalised
+           schema to a join that stops timing out.</p>
+        <p class="tools">MySQL &middot; Oracle &middot; SQL</p>
+      </article>
+      <article class="rv">
+        <h3>Internal tools that replace paper</h3>
+        <p>Small systems that retire a manual process. I have built a Java desktop app over MySQL and an
+           approval workflow inside a live university ERP.</p>
+        <p class="tools">Java &middot; Swing &middot; MySQL &middot; ERP</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="experience">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Experience</p>
+      <h2>Work that happened inside a real organisation.</h2>
+    </div>
+    <div class="rail">
+
+      <article class="entry rv">
+        <p class="when">Apr 2026 &mdash; Jul 2026</p>
+        <h3>Full Stack Development &amp; UI/UX Design Intern</h3>
+        <p class="org">DYLIT (India) Pvt. Ltd. &middot; Hyderabad &middot; product engineering centre for DYLIT Inc., USA</p>
+        <ul>
+          <li><strong>Shipped two modules into a live commercial product</strong> &mdash; an AI-driven
+              content orchestration platform with real users, so the work met production standards
+              rather than project-demo ones.</li>
+          <li><strong>Built the Auto-Propagate module</strong>, which distributes approved content to
+              connected external platforms. Implemented the client side of the OAuth 2.0 authorisation
+              code flow so users could grant publishing permission, and designed the interface around
+              queue-backed propagation &mdash; representing a state that is neither "not started" nor
+              "finished".</li>
+          <li><strong>Built the Admin Panel</strong>, including a list-heavy user table tuned with
+              useCallback and useMemo to avoid unnecessary re-renders.</li>
+          <li><strong>Started from the problem, not the ticket</strong> &mdash; researched how content
+              fragmentation actually affects creators and small businesses before designing anything,
+              then worked the flow through Figma before writing code.</li>
+          <li><strong>Typed every API contract in TypeScript</strong>, which caught response-shape
+              mismatches at build time instead of as runtime failures in the browser.</li>
+          <li>Worked inside a cross-functional team using feature branching, peer code review, and
+              documented API contracts against Go services backed by MongoDB, Redis, and RabbitMQ.
+              Performance rated <strong>excellent</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="entry rv">
+        <p class="when">Aug 2023 &mdash; Dec 2023</p>
+        <h3>Data Analyst Trainee</h3>
+        <p class="org">Areksoft Technologies Pvt. Ltd.</p>
+        <ul>
+          <li><strong>Mined and analysed social media data</strong> in MySQL and Power BI to show which
+              digital marketing activity was actually working, rather than which felt like it was.</li>
+          <li><strong>Built the dashboards that carried those findings</strong> to the people making the
+              spend decisions &mdash; reports they could read without a analyst sitting next to them.</li>
+          <li><strong>Owned collection and validation</strong> of the underlying data, so the numbers held
+              up when they were questioned.</li>
+          <li><strong>Worked in Figma with the UI/UX team</strong> on the design of those interfaces,
+              tightening the path between what a user clicks and what they came to find out.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="projects">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Selected projects</p>
+      <h2>Two you can open and run. Three more listed plainly.</h2>
+      <p>The first two come with working code and a walkthrough of what was mine. I would rather you
+         verify two than believe five.</p>
+    </div>
+
+    <div class="pj">
+
+      <article class="rv" data-pj>
+        <div class="visual">
+          <!-- TODO: <img src="images/muse.png" alt="MUSE interface"> -->
+          <div class="bars" data-bars="34"></div>
+          <span class="ph">TODO: screenshot</span>
+        </div>
+        <div class="inner">
+          <div class="topline">
+            <span class="kind">Machine learning &middot; Full-stack</span>
+            <span class="kind" style="color:var(--cool);border-color:color-mix(in srgb,var(--cool) 34%,transparent)">Code available</span>
+          </div>
+          <h3>MUSE &mdash; Multilingual Sentiment &amp; Sarcasm Engine</h3>
+          <div class="tabs" role="tablist">
+            <button role="tab" aria-selected="true">Overview</button>
+            <button role="tab" aria-selected="false">Stack</button>
+            <button role="tab" aria-selected="false">My part</button>
+          </div>
+          <div class="pane on" role="tabpanel">
+            <p>A system that listens to speech and works out not just whether the speaker is positive or
+               negative, but whether they mean it. <strong>Sarcasm is the hard case:</strong> the words
+               and the tone disagree, so text alone gets it wrong.</p>
+            <p>It reads both signals &mdash; language through mBERT, voice through acoustic features
+               from Librosa &mdash; and fuses them into one classification. Works across languages, and
+               runs in real time behind a deployed web app rather than in a notebook.</p>
+          </div>
+          <div class="pane" role="tabpanel">
+            <div class="stack">
+              <span class="chip">Python</span><span class="chip">mBERT</span><span class="chip">Librosa</span>
+              <span class="chip">Flask</span><span class="chip">React</span><span class="chip">NLP</span>
+              <span class="chip">Feature fusion</span><span class="chip">Audio processing</span>
+            </div>
+          </div>
+          <div class="pane" role="tabpanel">
+            <ul>
+              <li>Built the feature extraction and fusion pipeline joining text and audio signals.</li>
+              <li>Trained and evaluated the multilingual classification stage.</li>
+              <li>Built and deployed the React and Flask application, with separate user and admin
+                  interfaces.</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://github.com/Rishitha333/Muse_project" target="_blank" rel="noopener">Code &rarr;</a>
+            <!-- TODO: add a live demo link, or swap for a screen recording -->
+          </div>
+        </div>
+      </article>
+
+      <article class="rv" data-pj>
+        <div class="visual">
+          <div class="bars" data-bars="34"></div>
+          <span class="ph">TODO: screenshot</span>
+        </div>
+        <div class="inner">
+          <div class="topline">
+            <span class="kind">Desktop application &middot; Live data</span>
+            <span class="kind" style="color:var(--cool);border-color:color-mix(in srgb,var(--cool) 34%,transparent)">Code available</span>
+          </div>
+          <h3>EnviroTrack &mdash; Environmental Monitoring &amp; Alerts</h3>
+          <div class="tabs" role="tablist">
+            <button role="tab" aria-selected="true">Overview</button>
+            <button role="tab" aria-selected="false">Stack</button>
+            <button role="tab" aria-selected="false">My part</button>
+          </div>
+          <div class="pane on" role="tabpanel">
+            <p>A Java desktop application that reads sensor data as it arrives and shows temperature,
+               humidity, and air quality in a form someone can scan in a second, with alerts when a
+               reading crosses a threshold.</p>
+            <p><strong>The real problem was legibility under change</strong> &mdash; values updating
+               constantly need a layout that holds still, and a schema that stays queryable as
+               historical readings pile up.</p>
+          </div>
+          <div class="pane" role="tabpanel">
+            <div class="stack">
+              <span class="chip">Java</span><span class="chip">Swing</span><span class="chip">MySQL</span>
+              <span class="chip">Sensor data</span><span class="chip">Real-time processing</span>
+            </div>
+          </div>
+          <div class="pane" role="tabpanel">
+            <ul>
+              <li>Designed the schema for continuously arriving readings.</li>
+              <li>Built the Swing interface and the live update handling.</li>
+              <li>Implemented threshold alerting on incoming values.</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://github.com/Rishitha333/EnviroTrack" target="_blank" rel="noopener">Code &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+</div>
+
+    <div class="head rv" style="margin:clamp(44px,6vw,66px) 0 24px">
+      <p class="eyebrow">Also built</p>
+      <h2 style="font-size:clamp(20px,2.6vw,27px)">Two more, described honestly.</h2>
+      <p>Working systems from my degree. They are listed rather than written up, because I would
+         rather give you two projects you can open and inspect than five you have to take on faith.</p>
+    </div>
+
+    <div class="more">
+      <article class="rv">
+        <h3>Out Pass Digitalisation System</h3>
+        <p class="tag-line">ERP integration &middot; Web development &middot; Database management</p>
+        <p>Integrated a digital module into the college ERP system to automate the out-pass process,
+           enabling online student requests and HOD approvals &mdash; replacing the paper slips
+           entirely and cutting the manual handling around them.</p>
+        <p class="why">Code not public &mdash; the module is deployed inside the university's ERP
+           system and is not mine to release.</p>
+      </article>
+      <article class="rv">
+        <h3>Online Hostel Management System</h3>
+        <p class="tag-line">Python &middot; Django &middot; SQLite &middot; rebuilding</p>
+        <p>Full-stack system with separate admin and student modules, authentication, and full CRUD over
+           rooms, allocations, and requests &mdash; two roles sharing one database with different
+           permissions.</p>
+        <p class="why">Originally built in my BCA. Being rebuilt now with the code public and a live
+           demo. <span class="todo">TODO: promote to a case study once done</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Skills</p>
+      <h2>Split honestly, because a client hands you work on day one.</h2>
+      <p>The first list is a promise. The second is a realistic timeline, not a same-day one.</p>
+    </div>
+    <div class="sk">
+      <div class="rv">
+        <h3>Core &mdash; work unsupervised</h3>
+        <p class="cap">Hand me a task in these and it gets done without hand-holding.</p>
+        <ul class="core">
+          <li>React</li><li>Next.js</li><li>TypeScript</li><li>JavaScript</li>
+          <li>Redux Toolkit</li><li>Tailwind CSS</li><li>HTML</li><li>CSS</li>
+          <li>Python</li><li>Flask</li><li>Java</li><li>C</li>
+          <li>SQL</li><li>MySQL</li><li>MongoDB</li><li>Git</li>
+          <li>Figma</li><li>Power BI</li>
+        </ul>
+        <p class="cap" style="margin:18px 0 0">TODO: move anything here you are not fully confident in.</p>
+      </div>
+      <div class="rv">
+        <h3>Working knowledge</h3>
+        <p class="cap">Used in coursework and projects. Happy to take on with a sensible timeline.</p>
+        <ul class="aware">
+          <li>Django</li><li>AngularJS</li><li>Oracle</li><li>R</li>
+          <li>Machine learning</li><li>Deep learning</li><li>IoT</li><li>Big data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Education</p>
+      <h2>First class throughout, if that matters to you.</h2>
+    </div>
+    <div class="edu rv">
+      <div>
+        <h3>MCA &mdash; Computer Applications</h3>
+        <p>Reva University, Bengaluru<br>2024 &ndash; 2026<br><span class="g">CGPA 9.54</span></p>
+      </div>
+      <div>
+        <h3>BCA &mdash; Computer Applications</h3>
+        <p>KL University, Hyderabad<br>2021 &ndash; 2024<br><span class="g">CGPA 9.54</span></p>
+      </div>
+      <div>
+        <h3>Intermediate (BiPC)</h3>
+        <p>Viswasai Education Society, Nellore<br>2018 &ndash; 2020<br><span class="g">CGPA 9.6</span></p>
+      </div>
+      <div>
+        <h3>Secondary School Certificate</h3>
+        <p>Sri Chaitanya Techno School, Kadapa<br>2017 &ndash; 2018<br><span class="g">CGPA 9.8</span></p>
+      </div>
+    </div>
+
+    <div class="head rv" style="margin:clamp(40px,6vw,64px) 0 24px">
+      <p class="eyebrow">Certifications</p>
+      <h2 style="font-size:clamp(20px,2.6vw,26px)">Cloud, AI, and fundamentals.</h2>
+    </div>
+    <div class="sk rv">
+      <div>
+        <h3>Certified</h3>
+        <p class="cap">Verifiable certificates available on request.</p>
+        <ul class="aware">
+          <li>Microsoft Azure AI Fundamentals</li>
+          <li>Oracle Cloud Infrastructure</li>
+          <li>Applied Generative AI</li>
+          <li>Generative AI in HR</li>
+          <li>Data Structures &amp; Algorithms</li>
+          <li>Python Foundation</li>
+        </ul>
+        <!-- TODO: link these. Your current Drive links contain /u/1/ which only works
+             on your own machine. Re-share as "anyone with the link" and use the clean URL. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <h2>Have something that <em>needs building</em>?</h2>
+    <p class="say">
+      Tell me the problem and roughly when you need it. If it is not something I can do well, I will
+      say so rather than learn on your budget.
+    </p>
+    <div class="cl">
+      <a href="mailto:galicherlarishitha@gmail.com">galicherlarishitha@gmail.com</a>
+      <button type="button" id="copy" data-mail="galicherlarishitha@gmail.com">Copy email</button>
+      <a href="https://www.linkedin.com/in/rishitha-galicherla-363487227/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
+      <!-- TODO: confirm this username -->
+      <a href="https://github.com/Rishitha333" target="_blank" rel="noopener">GitHub &nearr;</a>
+      <!-- Phone left off deliberately — a public number attracts spam and cold calls.
+           Add back if you want them: <a href="tel:+918688251336">+91 86882 51336</a> -->
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Rishitha Galicherla &middot; Full-stack developer &amp; data analyst</span>
+    <span>Available for freelance</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- scroll progress + sticky border ---- */
+  var prog = document.getElementById('prog'), bar = document.getElementById('topbar');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    bar.classList.toggle('stuck', window.scrollY > 12);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---- reveal on scroll ---- */
+  var items = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window) || reduce){
+    items.forEach(function(el){el.classList.add('in')});
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }
+
+  /* ---- project card placeholder bars ---- */
+  document.querySelectorAll('[data-bars]').forEach(function(box, ci){
+    var n = parseInt(box.getAttribute('data-bars'),10) || 30;
+    for(var i=0;i<n;i++){
+      var s = document.createElement('span');
+      var t = i/n;
+      var h = 18 + Math.abs(Math.sin(t*Math.PI*(2+ci)))*66 + Math.sin(t*22+ci)*12;
+      s.style.height = Math.max(8, Math.min(100, h)) + '%';
+      box.appendChild(s);
+    }
+  });
+
+  /* ---- project tabs ---- */
+  document.querySelectorAll('[data-pj]').forEach(function(card){
+    var btns = card.querySelectorAll('.tabs button');
+    var panes = card.querySelectorAll('.pane');
+    btns.forEach(function(b, i){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){x.setAttribute('aria-selected','false')});
+        panes.forEach(function(p){p.classList.remove('on')});
+        b.setAttribute('aria-selected','true');
+        if(panes[i]) panes[i].classList.add('on');
+      });
+    });
+  });
+
+  /* ---- copy email ---- */
+  var cp = document.getElementById('copy');
+  if(cp && navigator.clipboard){
+    cp.addEventListener('click', function(){
+      navigator.clipboard.writeText(cp.dataset.mail).then(function(){
+        var old = cp.textContent;
+        cp.textContent = 'Copied';
+        setTimeout(function(){cp.textContent = old}, 1800);
+      });
+    });
+  } else if(cp){ cp.style.display = 'none'; }
+
+  /* ---- hero: two signals, drawn against each other ---- */
+  var cv = document.getElementById('wave');
+  if(cv){
+    var ctx = cv.getContext('2d'), w = 0, h = 0, t = 0, raf = null;
+    function size(){
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = cv.clientWidth; h = cv.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    function line(colour, amp, freq, phase, alpha, width){
+      ctx.beginPath();
+      for(var x=0;x<=w;x+=3){
+        var p = x / w;
+        var env = Math.sin(p * Math.PI);
+        var y = h*0.62
+              + Math.sin(p*freq + phase)*amp*env
+              + Math.sin(p*freq*2.7 + phase*1.4)*amp*0.32*env;
+        x === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+      }
+      ctx.globalAlpha = alpha; ctx.strokeStyle = colour; ctx.lineWidth = width;
+      ctx.stroke(); ctx.globalAlpha = 1;
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      /* the two signals that have to be read against each other */
+      line('#54D8D0', h*0.16, 7.5,  t,        .55, 1.4);
+      line('#FFB84D', h*0.13, 11.0, -t*1.35,  .5,  1.4);
+      line('#54D8D0', h*0.09, 16.0, t*0.7,    .22, 1);
+      line('#FFB84D', h*0.06, 23.0, -t*0.55,  .18, 1);
+    }
+    function loop(){ t += 0.006; draw(); raf = requestAnimationFrame(loop); }
+    function start(){
+      size(); 
+      if(reduce){ t = 0.8; draw(); return; }
+      if(!raf) loop();
+    }
+    window.addEventListener('resize', function(){ size(); if(reduce) draw(); });
+    /* stop animating when the hero is off-screen */
+    if('IntersectionObserver' in window && !reduce){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ if(!raf) loop(); }
+          else if(raf){ cancelAnimationFrame(raf); raf = null; }
+        });
+      },{threshold:0}).observe(cv);
+    }
+    start();
+  }
+})();
+</script>
+</body>
+</html>

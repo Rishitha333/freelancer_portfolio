@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rishitha Galicherla — Full-stack developer &amp; data analyst</title>
-<meta name="description" content="Full-stack developer and data analyst. React, Flask, Java, MySQL, Power BI. MCA graduate available for freelance and contract work.">
+<meta name="description" content="Full-stack developer and UI/UX. React, Next.js, TypeScript, Python, Flask. MCA graduate, most recently shipped two modules into a live commercial product at DYLIT. Available for freelance and contract work.">
 <meta name="theme-color" content="#0A0E1C">
 
 <!-- ============================================================
@@ -203,9 +203,10 @@ img{max-width:100%;display:block}
 }
 .pj article:hover{border-color:var(--line)}
 .pj .visual{
-  height:130px;position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft);
+  height:150px;position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft);
   background:var(--panel-2);display:flex;align-items:center;justify-content:center;
 }
+.pj .visual img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .pj .visual img{width:100%;height:100%;object-fit:cover}
 .pj .bars{display:flex;align-items:flex-end;gap:3px;height:64%;opacity:.72}
 .pj .bars span{width:5px;border-radius:2px;background:var(--cool)}
@@ -446,7 +447,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
           <li><strong>Mined and analysed social media data</strong> in MySQL and Power BI to show which
               digital marketing activity was actually working, rather than which felt like it was.</li>
           <li><strong>Built the dashboards that carried those findings</strong> to the people making the
-              spend decisions &mdash; reports they could read without a analyst sitting next to them.</li>
+              spend decisions &mdash; reports they could read without an analyst sitting next to them.</li>
           <li><strong>Owned collection and validation</strong> of the underlying data, so the numbers held
               up when they were questioned.</li>
           <li><strong>Worked in Figma with the UI/UX team</strong> on the design of those interfaces,
@@ -461,7 +462,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
   <div class="wrap">
     <div class="head rv">
       <p class="eyebrow">Selected projects</p>
-      <h2>Two you can open and run. Three more listed plainly.</h2>
+      <h2>Two you can open and run. Two more listed plainly.</h2>
       <p>The first two come with working code and a walkthrough of what was mine. I would rather you
          verify two than believe five.</p>
     </div>
@@ -470,9 +471,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 
       <article class="rv" data-pj>
         <div class="visual">
-          <!-- TODO: <img src="images/muse.png" alt="MUSE interface"> -->
+          <!-- To use a screenshot instead of the generated bars, put the image in an
+               images/ folder next to this file and replace the div below with:
+               <img src="images/muse.png" alt="MUSE analysis screen"> -->
           <div class="bars" data-bars="34"></div>
-          <span class="ph">TODO: screenshot</span>
         </div>
         <div class="inner">
           <div class="topline">
@@ -486,26 +488,35 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
             <button role="tab" aria-selected="false">My part</button>
           </div>
           <div class="pane on" role="tabpanel">
-            <p>A system that listens to speech and works out not just whether the speaker is positive or
-               negative, but whether they mean it. <strong>Sarcasm is the hard case:</strong> the words
-               and the tone disagree, so text alone gets it wrong.</p>
-            <p>It reads both signals &mdash; language through mBERT, voice through acoustic features
-               from Librosa &mdash; and fuses them into one classification. Works across languages, and
-               runs in real time behind a deployed web app rather than in a notebook.</p>
+            <p>A system that listens to speech and works out not just whether the speaker is positive
+               or negative, but whether they mean it. <strong>Sarcasm is the hard case:</strong> the
+               words and the tone disagree, so reading the transcript alone gets it wrong.</p>
+            <p>It reads both signals against each other &mdash; language through mBERT embeddings and a
+               trained classifier, tone through pitch and energy features from Librosa &mdash; then fuses
+               them. Around that sits a full pipeline: Whisper transcribes the audio and detects the
+               language, a router translates across <strong>seven languages</strong> using NLLB-200 or
+               Marian, and RoBERTa handles sentiment.</p>
+            <p>It runs as a deployed application with JWT authentication, bcrypt-hashed passwords,
+               per-user analysis history in MongoDB, an admin panel, and PDF export with embedded Noto
+               fonts so Indic scripts render properly rather than as boxes.</p>
           </div>
           <div class="pane" role="tabpanel">
             <div class="stack">
-              <span class="chip">Python</span><span class="chip">mBERT</span><span class="chip">Librosa</span>
-              <span class="chip">Flask</span><span class="chip">React</span><span class="chip">NLP</span>
-              <span class="chip">Feature fusion</span><span class="chip">Audio processing</span>
+              <span class="chip">Python</span><span class="chip">mBERT</span><span class="chip">Whisper</span>
+              <span class="chip">NLLB-200</span><span class="chip">RoBERTa</span><span class="chip">Librosa</span>
+              <span class="chip">Flask</span><span class="chip">React</span><span class="chip">MongoDB</span>
+              <span class="chip">JWT</span><span class="chip">bcrypt</span><span class="chip">Late fusion</span>
             </div>
           </div>
           <div class="pane" role="tabpanel">
             <ul>
-              <li>Built the feature extraction and fusion pipeline joining text and audio signals.</li>
-              <li>Trained and evaluated the multilingual classification stage.</li>
-              <li>Built and deployed the React and Flask application, with separate user and admin
-                  interfaces.</li>
+              <li>Built the feature extraction and late-fusion pipeline joining the text and audio
+                  signals.</li>
+              <li>Trained the sarcasm classifier on mBERT embeddings, and evaluated it against a
+                  labelled dataset.</li>
+              <li>Wired the translation router so each language pair goes to the right model.</li>
+              <li>Built and deployed the React and Flask application end to end, including auth,
+                  history, and the admin panel.</li>
             </ul>
           </div>
           <div class="links">
@@ -518,7 +529,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       <article class="rv" data-pj>
         <div class="visual">
           <div class="bars" data-bars="34"></div>
-          <span class="ph">TODO: screenshot</span>
         </div>
         <div class="inner">
           <div class="topline">
@@ -538,17 +548,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
             <p><strong>The real problem was legibility under change</strong> &mdash; values updating
                constantly need a layout that holds still, and a schema that stays queryable as
                historical readings pile up.</p>
+            <p>The multi-sensor chart is drawn from scratch in Graphics2D rather than pulled from a
+               library, and a Python layer runs alongside the Java client for linear-regression
+               forecasting and z-score anomaly detection.</p>
           </div>
           <div class="pane" role="tabpanel">
             <div class="stack">
-              <span class="chip">Java</span><span class="chip">Swing</span><span class="chip">MySQL</span>
-              <span class="chip">Sensor data</span><span class="chip">Real-time processing</span>
+              <span class="chip">Java</span><span class="chip">Swing</span><span class="chip">Graphics2D</span>
+              <span class="chip">MySQL</span><span class="chip">Python</span><span class="chip">scikit-learn</span>
+              <span class="chip">SciPy</span><span class="chip">Real-time data</span>
             </div>
           </div>
           <div class="pane" role="tabpanel">
             <ul>
-              <li>Designed the schema for continuously arriving readings.</li>
-              <li>Built the Swing interface and the live update handling.</li>
+              <li>Designed the schema and indexes for continuously arriving readings.</li>
+              <li>Wrote the charting component by hand &mdash; axis scaling, gridlines, per-sensor
+                  series, legend.</li>
+              <li>Built the Python forecasting and anomaly-detection layer the Java client calls.</li>
               <li>Implemented threshold alerting on incoming values.</li>
             </ul>
           </div>
@@ -583,8 +599,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
         <p>Full-stack system with separate admin and student modules, authentication, and full CRUD over
            rooms, allocations, and requests &mdash; two roles sharing one database with different
            permissions.</p>
-        <p class="why">Originally built in my BCA. Being rebuilt now with the code public and a live
-           demo. <span class="todo">TODO: promote to a case study once done</span></p>
+        <p class="why">Originally built during my BCA. Being rebuilt now, with the code public and a
+           live demo.</p>
       </article>
     </div>
   </div>
@@ -608,7 +624,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
           <li>SQL</li><li>MySQL</li><li>MongoDB</li><li>Git</li>
           <li>Figma</li><li>Power BI</li>
         </ul>
-        <p class="cap" style="margin:18px 0 0">TODO: move anything here you are not fully confident in.</p>
       </div>
       <div class="rv">
         <h3>Working knowledge</h3>

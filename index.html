@@ -203,11 +203,15 @@ img{max-width:100%;display:block}
 }
 .pj article:hover{border-color:var(--line)}
 .pj .visual{
-  height:150px;position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft);
+  height:200px;position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft);
   background:var(--panel-2);display:flex;align-items:center;justify-content:center;
 }
-.pj .visual img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.pj .visual img{width:100%;height:100%;object-fit:cover}
+.pj .visual img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.pj .visual.shot{display:block;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.pj .visual.shot img{height:auto;object-fit:unset}
+.pj .visual.shot::-webkit-scrollbar{width:8px}
+.pj .visual.shot::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.pj .visual.shot::-webkit-scrollbar-track{background:transparent}
 .pj .bars{display:flex;align-items:flex-end;gap:3px;height:64%;opacity:.72}
 .pj .bars span{width:5px;border-radius:2px;background:var(--cool)}
 .pj article:nth-child(2) .bars span{background:var(--signal)}
@@ -470,12 +474,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
     <div class="pj">
 
       <article class="rv" data-pj>
-        <div class="visual">
+                <div class="visual shot">
           <!-- To use a screenshot instead of the generated bars, put the image in an
                images/ folder next to this file and replace the div below with:
                <img src="images/muse.png" alt="MUSE analysis screen"> -->
-                    <img src="images/muse.png" alt="MUSE analysis results — sentiment, sarcasm score, tone, and Tamil translation">
-        </div>
+          <img src="images/muse.png" alt="MUSE analysis results — sentiment, sarcasm score, tone, and Tamil translation">
+          </div>
         <div class="inner">
           <div class="topline">
             <span class="kind">Machine learning &middot; Full-stack</span>
@@ -527,8 +531,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       </article>
 
       <article class="rv" data-pj>
-        <div class="visual">
-          <div class="bars" data-bars="34"></div>
+        <div class="visual shot">
+          <img src="images/envirotrack.png" alt="EnviroTrack dashboard — live sensor readings, multi-sensor graph, and anomaly predictions">
         </div>
         <div class="inner">
           <div class="topline">

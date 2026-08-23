@@ -318,6 +318,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
   .pulse{animation:none}
   .btn:hover,.svc article:hover,.sk li:hover,.cl a:hover{transform:none}
 }
+.project-cta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.link-note {
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.55;
+  color: inherit;
+}
 </style>
 </head>
 <body>
@@ -526,9 +539,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
                   history, and the admin panel.</li>
             </ul>
           </div>
-          <div class="links">
-            <a href="https://github.com/Rishitha333/Muse_project" target="_blank" rel="noopener">Code &rarr;</a>
-            <!-- TODO: add a live demo link, or swap for a screen recording -->
+          <div class="project-cta">
+            <a class="project-link" href="https://github.com/Rishitha333/Muse_project" target="_blank" rel="noopener">
+              Read the code →
+            </a>
+            <span class="link-note">runs locally · setup in README</span>
           </div>
         </div>
       </article>
@@ -575,8 +590,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
               <li>Implemented threshold alerting on incoming values.</li>
             </ul>
           </div>
-          <div class="links">
-            <a href="https://github.com/Rishitha333/EnviroTrack" target="_blank" rel="noopener">Code &rarr;</a>
+          <div class="project-cta">
+            <a class="project-link" href="https://github.com/Rishitha333/EnviroTrack" target="_blank" rel="noopener">
+              Read the code →
+            </a>
+            <span class="link-note">runs locally · setup in README</span>
           </div>
         </div>
       </article>

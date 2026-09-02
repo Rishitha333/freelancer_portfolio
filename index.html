@@ -370,7 +370,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
     <dl class="hero-meta">
       <div><dt>Based in</dt><dd>Bengaluru, India</dd></div>
       <div><dt>Focus</dt><dd>Full-stack &amp; UI/UX</dd></div>
-      <div><dt>Projects shown</dt><dd>4</dd></div>
+      <div><dt>Projects shown</dt><dd>5</dd></div>
       <div><dt>Response time</dt><dd>Within a day</dd></div>
     </dl>
   </div>
@@ -405,9 +405,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       </article>
       <article class="rv">
         <h3>Power BI dashboards</h3>
-        <p>A spreadsheet or database turned into a report someone can read and act on &mdash; including
-           cleaning the source data first, which is usually most of the job.</p>
-        <p class="tools">Power BI &middot; SQL &middot; Excel &middot; R</p>
+        <p>A spreadsheet or database turned into a report someone can read and act on &mdash; with
+           drillthrough, custom tooltips, and DAX that holds up. Cleaning the source data first is
+           usually most of the job.</p>
+        <p class="tools">Power BI &middot; DAX &middot; SQL &middot; Power Query</p>
       </article>
       <article class="rv">
         <h3>Database design &amp; queries</h3>
@@ -482,9 +483,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
   <div class="wrap">
     <div class="head rv">
       <p class="eyebrow">Selected projects</p>
-      <h2>Two you can open and run. Two more listed plainly.</h2>
-      <p>The first two come with working code and a walkthrough of what was mine. I would rather you
-         verify two than believe five.</p>
+      <h2>Three you can open and inspect. Two more listed plainly.</h2>
+      <p>The first three come with working files and a walkthrough of what was mine. I would rather
+         you verify three than believe five.</p>
     </div>
 
     <div class="pj">
@@ -550,6 +551,65 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 
       <article class="rv" data-pj>
         <div class="visual shot">
+          <img src="images/maven-roasters.png" alt="Maven Roasters sales dashboard — KPI cards, revenue trend, hourly trading pattern, and category performance by location">
+        </div>
+        <div class="inner">
+          <div class="topline">
+            <span class="kind">Business intelligence &middot; Data modelling</span>
+            <span class="kind" style="color:var(--cool);border-color:color-mix(in srgb,var(--cool) 34%,transparent)">Report &amp; file available</span>
+          </div>
+          <h3>Maven Roasters &mdash; Sales Performance Dashboard</h3>
+          <div class="tabs" role="tablist">
+            <button role="tab" aria-selected="true">Overview</button>
+            <button role="tab" aria-selected="false">Stack</button>
+            <button role="tab" aria-selected="false">My part</button>
+          </div>
+          <div class="pane on" role="tabpanel">
+            <p>A Power BI report over six months of transaction-level retail sales &mdash;
+               <strong>149,000 records</strong> across three locations. Built to answer the questions
+               a shop owner actually asks: where revenue is trending, which hours carry the day,
+               which products are doing the work.</p>
+            <p><strong>The interesting part is not the charts, it is the interaction.</strong> Most
+               dashboards answer one question and then need an analyst for the follow-up. This one
+               lets the viewer ask their own: a single slicer switches the trend and hourly charts
+               between four metrics, right-clicking any product opens a detail page that renames
+               itself to whatever was clicked, and hovering shows a miniature report rather than one
+               number.</p>
+            <p>Underneath it is a star schema with a marked date table, so month-over-month and
+               year-to-date resolve correctly rather than approximately. Fifteen measures, and the
+               whole thing styled through a theme file &mdash; nothing in it is a Power BI default.</p>
+          </div>
+          <div class="pane" role="tabpanel">
+            <div class="stack">
+              <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
+              <span class="chip">Star schema</span><span class="chip">Time intelligence</span>
+              <span class="chip">Field parameters</span><span class="chip">Drillthrough</span>
+              <span class="chip">Custom theme JSON</span>
+            </div>
+          </div>
+          <div class="pane" role="tabpanel">
+            <ul>
+              <li>Modelled the data &mdash; date dimension built in DAX, marked as the report's date
+                  table, auto date/time disabled to keep the model clean.</li>
+              <li>Wrote fifteen measures covering aggregation, time intelligence, ranking, and
+                  dynamic text for the self-titling drillthrough page.</li>
+              <li>Designed the report page and wrote the theme JSON &mdash; palette, typography,
+                  gridlines, visual containers.</li>
+              <li>Built the interaction layer: drillthrough page, custom report-page tooltip,
+                  field parameter, conditional data bars, cross-filtering.</li>
+            </ul>
+          </div>
+          <div class="project-cta">
+            <a class="project-link" href="https://github.com/Rishitha333/maven-roasters-dashboard/blob/main/maven-roasters-sales.pdf" target="_blank" rel="noopener">
+              Read the report →
+            </a>
+            <span class="link-note">PDF export &middot; .pbix and theme in the repo</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rv" data-pj>
+        <div class="visual shot">
           <img src="images/envirotrack.png" alt="EnviroTrack dashboard — live sensor readings, multi-sensor graph, and anomaly predictions">
         </div>
         <div class="inner">
@@ -605,7 +665,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       <p class="eyebrow">Also built</p>
       <h2 style="font-size:clamp(20px,2.6vw,27px)">Two more, described honestly.</h2>
       <p>Working systems from my degree. They are listed rather than written up, because I would
-         rather give you two projects you can open and inspect than five you have to take on faith.</p>
+         rather give you three projects you can open and inspect than five you have to take on faith.</p>
     </div>
 
     <div class="more">
